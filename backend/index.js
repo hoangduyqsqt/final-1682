@@ -68,7 +68,7 @@ app.post('/api/momo/pay', isAuthenticated, async (req, res) => {
     const accessKey = 'F8BBA842ECF85';
     const secretKey = 'K951B6PE1waDMi640xX08PD3vg6EkVlz';
     const partnerCode = 'MOMO';
-    const redirectUrl = 'http://localhost:5001/api/orders/confirm-payment';
+    const redirectUrl = 'http://localhost:5173/success';
     const ipnUrl = 'http://localhost:5001/api/orders/confirm-payment';
     const requestType = "payWithMethod";
     const orderId = partnerCode + new Date().getTime();
@@ -165,23 +165,28 @@ app.post('/api/momo/pay', isAuthenticated, async (req, res) => {
     momoReq.end();
 })
 
-main()
-    .then(() => console.log("mongodb is successfully connected."))
-    .catch((err) => console.log(err));
+
+
+    app.post("/uploadImage", (req, res) => {
+        uploadImage(req.body.image)
+            .then((url) => res.send(url))
+            .catch((err) => res.status(500).send(err));
+    });
+
 
 async function main() {
     await mongoose.connect(process.env.DB_URL);
 
     app.get("/", (req, res) => {
-        res.send("Lebaba E-commerce Server is running....!");
+        res.send("Duy E-commerce Server is running....!");
     });
 }
 
-app.post("/uploadImage", (req, res) => {
-    uploadImage(req.body.image)
-        .then((url) => res.send(url))
-        .catch((err) => res.status(500).send(err));
-});
+main()
+    .then(() => console.log("mongodb is successfully connected."))
+    .catch((err) => console.log(err));
+
+    
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

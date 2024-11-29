@@ -6,3 +6,4 @@ const verifyAdmin = (req, res, next) => {
 }
 
 export default verifyAdmin
+

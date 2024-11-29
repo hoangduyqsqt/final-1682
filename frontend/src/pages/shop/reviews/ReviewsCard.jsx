@@ -48,14 +48,13 @@ const ReviewsCard = ({ productReviews }) => {
                 }
             </div>
 
-            {/* add review button */}
             <div className='mt-12'>
                 <button
                     onClick={handleOpenReviewModal}
                     className='px-6 py-3 bg-primary text-white rounded-md'>Add A Review</button>
             </div>
 
-            {/* review modal  */}
+            
             <PostAReview isModalOpen={isModalOpen} handleClose={handleCloseReviewModal}/>
         </div>
     )

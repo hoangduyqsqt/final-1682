@@ -7,8 +7,6 @@ const UploadImage = ({ name, setImage }) => {
     const [loading, setLoading] = useState(false);
     const [url, setUrl] = useState("");
 
-    // base64 functionality
-
     const convertBase64 = (file) => {
         return new Promise((resolve, reject) => {
             const fileReader = new FileReader();
@@ -23,8 +21,6 @@ const UploadImage = ({ name, setImage }) => {
             };
         });
     };
-
-    // request to upload a file
     const uploadSingleImage = (base64) => {
         setLoading(true);
         axios
