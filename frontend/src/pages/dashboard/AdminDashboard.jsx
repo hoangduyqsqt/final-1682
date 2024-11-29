@@ -31,7 +31,7 @@ const AdminDashboard = () => {
             <div>
                 <div className='nav__logo'>
                     <Link to="/">DUYFASHION <span>.</span></Link>
-                    <p className='text-xs italic'>Admin dashboard</p>
+                    <p className='text-xs italic'>Admin Dashboard</p>
                 </div>
                 <hr className='mt-5' />
                 <ul className='space-y-5 pt-5'>
